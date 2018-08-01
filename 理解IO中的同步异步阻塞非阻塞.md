@@ -15,7 +15,7 @@
 ## 五种 I/O 模型的比较 ##
 看完李华接机的故事，我们再来看看在[《UNIX 网络编程》](https://book.douban.com/subject/1500149/)中所描述的五种 UNIX I/O 模型的比较：  
 
-![](https://i.imgur.com/MUAMwxS.png)
+![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3IO%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E-0.png)
 
 如果我们把**李华接机的故事**与 **UNIX I/O 模型**做个模型的映射，可以得到如下映射表  
 
@@ -46,7 +46,7 @@
 
 ## 阻塞/非阻塞、同步/异步之间的关联 ##
 从 UNIX I/O 模型角度看：阻塞式 I/O，非阻塞式 I/O，I/O 复用 (select/poll/epoll)、信号驱动 I/O 都属于同步 I/O，因为它们在数据由内核空间拷贝到用户空间时线程都是阻塞的，不能干别的事。只有异步 I/O 模型是符合异步 I/O 操作的含义的，即在数据准备完成时，由内核空间拷贝到用户空间后通知线程，在等待通知的这段时间里线程可以干别的事。下图是对阻塞/非阻塞、同步/异步之间的关联关系做的一个总结，可以看出异步 I/O 需要操作系统层面的特殊模块才能实现：
-![](https://i.imgur.com/aLOsdx4.png)
+![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3IO%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E9%98%BB%E5%A1%9E%E9%9D%9E%E9%98%BB%E5%A1%9E-1.png)
 
 ## 总结 ##
 本文只关注 I/O 模型中的阻塞、非阻塞、同步、异步之间的区别与关联，我们也能去其他角度去理解这四个名词的含义，虽然领域不同，但基本的概念还是互通的。
