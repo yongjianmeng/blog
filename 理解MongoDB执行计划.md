@@ -193,7 +193,7 @@ db.User.find({
 ## allPlansExecution 模式 ##
 在executionStats模式下，所有的执行计划都会被真正地执行，包括winningPlan和rejectedPlans，并返回执行过程的详细信息。该模式的信息和executionStats模式基本一样，所以不再做重复的解析。
 
-## Stage的类型 ## 的
+## Stage的类型 ##
 在上述解析中，执行计划中有一些不同的执行步骤，这里总结一下常见的stage及其所代表的意义：  
 
 | 类型             | 解释           | 备注  |
