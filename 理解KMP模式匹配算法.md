@@ -16,31 +16,31 @@
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-1.png)
 
-图-1
+<p align="center">图-1</p>
 
 - 第二步：移动 p，尝试从 t 的第 1 位开始匹配，发现 t 的第 1 位是 "o"，与 p 的第 0 位 "g" 不相等，匹配失败。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-2.png)
 
-图-2
+<p align="center">图-2</p>
 
 - 第三步：继续移动 p，尝试从 t 的第 2 位开始匹配，和第二步一样，匹配失败。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-3.png)
 
-图-3
+<p align="center">图-3</p>
 
 - 第四步：继续移动 p，尝试从 t 的第 3 位开始匹配，和第三步一样，匹配失败。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-4.png)
 
-图-4
+<p align="center">图-4</p>
 
 - 第五步：继续移动 p，尝试从 t 的第 4 位开始匹配，这时发现所有的字符都是相等的，匹配成功。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-5.png)
 
-图-5
+<p align="center">图-5</p>
 
 ### 时间复杂度分析 ###
 
@@ -56,13 +56,13 @@ KMP算法的诞生正是为了避免这种无效的重复的匹配。KMP模式�
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-6.png)
 
-图-6
+<p align="center">图-6</p>
 
 第 0  ~ 4 位都是相等的，但到第 5 位时 "x" 与 "f" 不相等，按照朴素模式匹配算法就会移动 p，把它的首字母 p[0] （即 "a"） 继续与 t[1]、t[2]、t[3]、t[4]（即 "b"，"c"，"d"，"e"）作比较，发现它们都与 p[0]不相等。但是，既然我们知道在子串 p 中的首字母 "a" 不与其后面的 "bcdex" 中任意一字符相等，那么这些比较就重复了，我们完全可以跳过它们，直接跳到比较 p[0] 与 t[5]，如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-7.png)
 
-图-7
+<p align="center">图-7</p>
 
 注意，虽然我们知道在子串 p 中 p[0] 与 p[5] 不相等，在第一步比较中我们知道了 p[5] 与 t[5] 不相等，但我们并不能推导出 p[0] 不等于 t[5]，因此我们仍然要比较 p[0] 与 t[5]，比较之后才知道它们相不相等。
 
@@ -72,13 +72,13 @@ KMP算法的诞生正是为了避免这种无效的重复的匹配。KMP模式�
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-8.png)
 
-图-8
+<p align="center">图-8</p>
 
 再仔细看一下上图高亮的地方，我们发现，p[3]p[4] 与 t[3]t[4] 是相等的（都是"ab"），而 p[1]p[2] 也与 t[3]t[4] 相等，这时我们虽然不能完全跳过相等的部分（即 p[0] 跳到直接与 t[5] 作比较），但**退而求其次**，我们可以**移动子串 p **至 p[0]p[1] 与 t[3]t[4] 重合，这时我们不需要比较  p[0]p[1] 与 t[3]t[4]，因为我们确定它们是相等的，而且它们之前的部分也不需要比较，因为我们知道，p[0] （即"a" ）与 t[1] （即"b"）、t[2]（即"c"）是不相等的，而是直接开始比较 p[2] 与 t[5]。这样就直接跳过了 p[0] 与 t[1]、 p[0] 与 t[2] 、p[0] 与 t[3]、 p[1] 与 [t4] 的比较。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-9.png)
 
-图-9
+<p align="center">图-9</p>
 
 这也是网上很多教程没有说明为什么要求出 next 数组（暂时不用知道什么是next数组，后面我们会说明）的原因：通俗地说，**因为有了next数组，我们就可以知道，如果某一位不相等了，我们应该怎么移动子串 p， 使得我们能避免重复比较**。
 
@@ -95,37 +95,37 @@ next 数组由子串 p 通过计算得出，通过它我们能够知道，当主
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-10.png)
 
-图-10
+<p align="center">图-10</p>
 
 我们去 next 数组中查找，next[4] 为1，这时我们移动子串 p，让子串 p 的第 1 位（即 p[1]）与刚才不相等的地方（即 t[4]）继续进行比较，移动结果如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-11.png)
 
-图-11
+<p align="center">图-11</p>
 
 继续假设，当比较到如下图所示的位置不相同时（即 p[3] 与 t[3] 不相等）：
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-12.png)
 
-图-12
+<p align="center">图-12</p>
 
 我们去 next 数组中查找，next[3] 为1，这时我们移动子串 p，让子串 p 的第 0 位（即 p[0]）与刚才不相等的地方（即 t[3]）继续进行比较，移动结果如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-13.png)
 
-图-13
+<p align="center">图-13</p>
 
 next[1]、next[2] 同理，那么next[0]有什么意义呢？在比较时，如果在 p[0] 位置就不相等了，在 p[0] 之前没有字符可以用来继续比较了，如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-14.png)
 
-图-14
+<p align="center">图-14</p>
 
 那咋办呢？很好解决，把子串 p 移动一位来继续进行比较，因为第 0 位就不相等了，我们只能移动 p 继续进行比较。如下图所示。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-15.png)
 
-图-15
+<p align="center">图-15</p>
 
 知道了 next 数组的作用，那么我们怎么通过子串 p 来计算出它的 next 数组呢？
 
@@ -133,19 +133,19 @@ next[1]、next[2] 同理，那么next[0]有什么意义呢？在比较时，如�
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-16.png)
 
-图-16
+<p align="center">图-16</p>
 
-- 第一种情况很好理解，在 next 数组中，当 索引 j 为 0 时，对应的 next[0] 恒等于 -1。所以所有的 next 数组的第一个元素都为 -1。
+第一种情况很好理解，在 next 数组中，当 索引 j 为 0 时，对应的 next[0] 恒等于 -1。所以所有的 next 数组的第一个元素都为 -1。
 
-- 第二种情况相对难一些，它的意思是，当我们求 index[j] 时，如果能在子串第 j 个字符之前（即不包括第 j 个字符）的字符串中找到前缀字符串与后缀字符串相等的情况，那么取出其中最长的一种情况，它对应的 k 值就是 index[j] 的值，可能这么说有点难懂，那么请看下图。
+第二种情况相对难一些，它的意思是，当我们求 index[j] 时，如果能在子串第 j 个字符之前（即不包括第 j 个字符）的字符串中找到前缀字符串与后缀字符串相等的情况，那么取出其中最长的一种情况，它对应的 k 值就是 index[j] 的值，可能这么说有点难懂，那么请看下图。
 
 ![](https://github.com/yongjianmeng/blog/blob/master/images/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95-17.png)
 
-图-17
+<p align="center">图-17</p>
 
 在上图中，我们要求 index[j] 的值，那么在子串 p 第 j 个字符之前的字符串，即 "abcab" 中，我们能找出前缀字符串与后缀字符串相等的情况 "abcab"，这种情况也是最长的一种，所以取其 k 值，即 2 作为 index[j] 的值。如果子串 p = "abccccab"，那么 index[7] 之前的字符串为 "abcccca"，在这个字符串中，前缀字符串和后缀字符串相等的情况是 "abcccca"，此时 k 值为1，因此 index[7] 为 1。如果子串 p = "aaaaaaab"，那么 index[7] 之前的字符串为 "aaaaaaa"，在这个字符串中，前缀字符串和后缀字符串都是 "aaaaaaa"，此时 k 值为6，因此 index[7] 为 6。
 
-- 第三种情况是当上面两种情况都不满足时考虑的，这时设置 index 值为 0。聪明的你应该能想到这种情况吧？没错，它出现的情况就是在没有相等的字符时。例如 p = "abcdefgh"，那么 index[7] 之前的字符串为 "abcdefg"，在这个字符串中，没有前缀字符串和后缀字符串相等的情况，此时 k 值为0，因此 index[7] 为 0。
+第三种情况是当上面两种情况都不满足时考虑的，这时设置 index 值为 0。聪明的你应该能想到这种情况吧？没错，它出现的情况就是在没有相等的字符时。例如 p = "abcdefgh"，那么 index[7] 之前的字符串为 "abcdefg"，在这个字符串中，没有前缀字符串和后缀字符串相等的情况，此时 k 值为0，因此 index[7] 为 0。
 
 ## 代码实现 - Java版本 ##
 求 index 数组的代码如下所示。有了上面对 index 数组的解释，理解这段代码应该很容易了。
