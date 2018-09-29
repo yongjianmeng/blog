@@ -128,6 +128,19 @@ public enum Elvis {
 ----------
 ## 4. 通过私有构造器强化不可实例化的能力 ##
 
+* 通过私有构造器强化不可实例化的能力
+```
+// Noninstantiable utility class
+public class UtilityClass {
+    // Suppress default constructor for noninstantiability
+    private UtilityClass() {
+        throw new AssertionError();
+    }
+    // ...
+}
+```
+**副作用**：使得该类无法被子类化。
+
 ----------
 ## 5. 避免创建不必要的对象 ##
 
