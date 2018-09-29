@@ -84,6 +84,47 @@ Map<String, List<String>> m = new HashMap<>();
 ----------
 ## 3. 用私有构造器或者枚举类型强化Singleton属性 ##
 
+* 用私有构造器强化Singleton属性
+```
+// Singleton with public final field
+public class Elvis {
+    public static final Elvis INSTANCE = new Elvis();
+    private Elvis() { ... }
+
+    // ...
+}
+```
+享有特权的客户端可以借助AccessibleObject.setAccessible方法，通过反射机制调用私有构造器，可以通过修改构造器，让它在被要求创建第二个实例的时候抛出异常。
+
+* 公有的成员是个静态工厂方法：
+```
+// Singleton with static factory
+public class Elvis {
+    private static final Elvis INSTANCE = new Elvis();
+    private Elvis() { ... }
+    public static Elvis getInstance() { return INSTANCE; }
+
+    // ...
+}
+```
+公有域方法的主要好处在于，**组成类的成员的声明很清楚地表明了这个类是一个Singleton**。现代的JVM实现几乎能够将静态工厂方法的调用内联化。静态工厂方法更加灵活，在不改变其API的前提下，可以改变该类是否应该为Singleton的想法。为了维护并保证Singleton，必须声明所有的实例都是瞬时（**transient**）**的并提供一个readResolve方法**，否则，每次反序列化一个序列化的实例时，都会创建一个新的实例。
+```
+// readResolve method to preserve singleton property
+private Object readResolve() {
+	// Return the one true Elvis and let the garbage collector take care of the Elvis impersonator.
+    return INSTANCE;
+}
+```
+* 包含单个元素的枚举类型实现单例模式
+```
+public enum Elvis {
+	INSTANCE;
+
+    // ...
+}
+```
+这种方法在功能上与 公有域方法相近，但是它更加简洁，**无偿地提供了序列化机制**，**绝对防止多次实例化**，**即使是在面对复杂的序列化或者反射攻击的时候**。单元素的枚举类型已经成为实现Singleton的最佳方法。
+
 ----------
 ## 4. 通过私有构造器强化不可实例化的能力 ##
 
