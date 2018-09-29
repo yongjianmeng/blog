@@ -13,3 +13,4 @@
 ## 翻译文章 ##
 
 ## 读书笔记 ##
+1. [《Effective Java》读书笔记与理解 - 持续更新](https://github.com/yongjianmeng/blog/blob/master/%E3%80%8AEffective%20Java%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%8E%E7%90%86%E8%A7%A3.md)
