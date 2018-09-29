@@ -9,3 +9,7 @@
 6. [记一次使用 MongoDB Cursor Snapshot 遇到的坑 - 2018/09/29](https://github.com/yongjianmeng/blog/blob/master/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%20MongoDB%20Cursor%20Snapshot%20%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.md)
 ### 杂谈 ###
 1. [同理心](https://github.com/yongjianmeng/blog/blob/master/%E5%90%8C%E7%90%86%E5%BF%83.md)
+
+## 翻译文章 ##
+
+## 读书笔记 ##
