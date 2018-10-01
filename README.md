@@ -14,4 +14,4 @@
 
 ## 读书笔记 ##
 1. [《深入理解JVM虚拟机》 - 图解 JVM - 持续更新](https://github.com/yongjianmeng/blog/blob/master/%E5%9B%BE%E8%A7%A3%20JVM%20-%20%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B.md) 
-2. [《Effective Java》读书笔记与理解 - 持续更新](https://github.com/yongjianmeng/blog/blob/master/%E3%80%8AEffective%20Java%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%8E%E7%90%86%E8%A7%A3.md)
+2. [《Effective Java》 - 读书笔记与理解 - 持续更新](https://github.com/yongjianmeng/blog/blob/master/%E3%80%8AEffective%20Java%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%8E%E7%90%86%E8%A7%A3.md)
