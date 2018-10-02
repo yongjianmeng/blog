@@ -1,6 +1,6 @@
 # Java volatile 关键字 #
 
-本文翻译自[《Java Volatile Keyword》](http://tutorials.jenkov.com/java-concurrency/volatile.html)，是我看过的解释Java中**volatile**关键字较为详尽的一篇文章，在此做给它做一个译文，并结合一些其他资料作为补充，可能也会对文章做出一些修改，最终希望能把volatile关键字解释地更清楚。
+本文翻译自[《Java Volatile Keyword》](http://tutorials.jenkov.com/java-concurrency/volatile.html)，是我看过的解释**volatile**关键字较为详尽的一篇文章，在此给它做一个译文，也会对文章做出一些修改，并结合一些资料作为补充，希望能把volatile关键字解释地更清楚。
 
 在Java中，volatile关键字的作用是用于标记一个变量为“存储在主存储器（主存）中”，更确切地说，每一次读取volatile变量都是从主存中读取而不是从CPU缓存<sup>[1]</sup>中读取，每一次写入volatile变量都会写入主存中而不是只写入CPU缓存中<sup>[2]</sup>。事实上，自JDK 1.5之后，volatile关键字不仅仅能保证被标记的变量的读取和写入操作能直接作用于主存，它还有更多的功能，我会在后面的文章做出解释。
 
@@ -52,6 +52,11 @@ TODO change a name ?
 ![](https://github.com/yongjianmeng/blog/blob/master/images/Java%20volatile%20%E5%85%B3%E9%94%AE%E5%AD%97%20-%200.jpg)
 
 [2] 不使用volatile变量之前写操作只写入CPU缓存中，之后再同步到主存中，而使用了volatile变量后，写操作不仅会写入CPU缓存中，也会同时写入到主存中。
+
 [3] 或者是单个CPU多个核。
+
 [4] 图中Thread 1已经把计数器变量的值更新到了7，但是并没有将其同步到主存中，导致同一个计数器变量在CPU缓存中的值与在主存中的值不同，Thread 2只能读到主存中的值，也就是0.
+
 [5] 
+
+> 欢迎转载，注明出处即可。
