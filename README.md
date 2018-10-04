@@ -8,6 +8,7 @@
 4. [理解KMP模式匹配算法 - 2018/08/10](https://github.com/yongjianmeng/blog/blob/master/%E7%90%86%E8%A7%A3KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95.md)
 5. [MongoDB索引调优 - 2018/08/16](https://github.com/yongjianmeng/blog/blob/master/MongoDB%E7%B4%A2%E5%BC%95%E8%B0%83%E4%BC%98.md)
 6. [记一次使用 MongoDB Cursor Snapshot 遇到的坑 - 2018/09/29](https://github.com/yongjianmeng/blog/blob/master/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%20MongoDB%20Cursor%20Snapshot%20%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91.md)
+7. [常用Git命令操作 - 2018/10/05](https://github.com/yongjianmeng/blog/blob/master/%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C.md)
 ### 杂谈 ###
 程序人生杂谈。
 1. [同理心](https://github.com/yongjianmeng/blog/blob/master/%E5%90%8C%E7%90%86%E5%BF%83.md)
