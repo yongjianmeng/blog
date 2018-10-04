@@ -1,10 +1,12 @@
 # 常用Git命令操作 #
 
+记录一些常用/实用的Git命令
+
 1. 
 ```
 git clone <https/ssh/git>
 ```
-克隆某个项目。
+克隆远程项目。
 
 2. 
 ```
@@ -73,3 +75,5 @@ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" --before="2008-
 
 
 参考 [git-scm](https://git-scm.com/book/zh/v1)
+
+> 欢迎转载，注明出处即可。
